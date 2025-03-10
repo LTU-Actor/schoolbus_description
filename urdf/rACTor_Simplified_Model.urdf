@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="rACTor_Simplified_Model">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="3.1711E-17 -1.9537E-16 0.5567"
+        rpy="0 0 0" />
+      <mass
+        value="100" />
+      <inertia
+        ixx="47.985"
+        ixy="-1.3171E-15"
+        ixz="-4.9239E-15"
+        iyy="57.828"
+        iyz="1.4041E-15"
+        izz="61.593" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 0.5" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="fl_steering_link">
+    <inertial>
+      <origin
+        xyz="1.0285E-07 1.5412E-07 -0.092579"
+        rpy="0 0 0" />
+      <mass
+        value="7.3876" />
+      <inertia
+        ixx="0.072415"
+        ixy="-9.3088E-07"
+        ixz="2.1936E-08"
+        iyy="0.055257"
+        iyz="6.4073E-08"
+        izz="0.065566" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/fl_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/fl_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_steering"
+    type="revolute">
+    <origin
+      xyz="0.3556 0.2794 0.3556"
+      rpy="0 0 -0.11117" />
+    <parent
+      link="base_link" />
+    <child
+      link="fl_steering_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="6"
+      velocity="1.5" />
+    <dynamics
+      damping="0.1"
+      friction="1" />
+  </joint>
+  <link
+    name="fl_wheel_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="3.7289" />
+      <inertia
+        ixx="0.016291"
+        ixy="-4.8148E-34"
+        ixz="0"
+        iyy="0.016291"
+        iyz="4.8148E-35"
+        izz="0.029148" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/fl_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/fl_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.2286"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="fl_steering_link" />
+    <child
+      link="fl_wheel_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="14"
+      velocity="35" />
+    <dynamics
+      damping="0.1"
+      friction="1" />
+  </joint>
+  <link
+    name="fr_steering_link">
+    <inertial>
+      <origin
+        xyz="-7.9134E-08 -1.3959E-07 -0.092579"
+        rpy="0 0 0" />
+      <mass
+        value="7.3876" />
+      <inertia
+        ixx="0.072415"
+        ixy="-9.3088E-07"
+        ixz="-2.1936E-08"
+        iyy="0.055257"
+        iyz="-6.4073E-08"
+        izz="0.065566" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/fr_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/fr_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_steering"
+    type="revolute">
+    <origin
+      xyz="0.3556 -0.2794 0.3556"
+      rpy="0 0 0.015531" />
+    <parent
+      link="base_link" />
+    <child
+      link="fr_steering_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="6"
+      velocity="1.5" />
+    <dynamics
+      damping="0.1"
+      friction="1" />
+  </joint>
+  <link
+    name="fr_wheel_link">
+    <inertial>
+      <origin
+        xyz="-5.5511E-17 0 5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.7289" />
+      <inertia
+        ixx="0.016291"
+        ixy="-5.7799E-37"
+        ixz="-4.8789E-19"
+        iyy="0.016291"
+        iyz="-6.2097E-36"
+        izz="0.029148" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/fr_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/fr_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.2286"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="fr_steering_link" />
+    <child
+      link="fr_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="14"
+      velocity="35" />
+    <dynamics
+      damping="0.1"
+      friction="1" />
+  </joint>
+  <link
+    name="bl_steering_link">
+    <inertial>
+      <origin
+        xyz="-7.9134E-08 -1.3959E-07 -0.092579"
+        rpy="0 0 0" />
+      <mass
+        value="7.3876" />
+      <inertia
+        ixx="0.072415"
+        ixy="-9.3088E-07"
+        ixz="-2.1936E-08"
+        iyy="0.055257"
+        iyz="-6.4073E-08"
+        izz="0.065566" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/bl_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/bl_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bl_steering"
+    type="revolute">
+    <origin
+      xyz="-0.3556 0.2794 0.3556"
+      rpy="0 0 -0.01447" />
+    <parent
+      link="base_link" />
+    <child
+      link="bl_steering_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="6"
+      velocity="1.5" />
+    <dynamics
+      damping="0.1"
+      friction="1" />
+  </joint>
+  <link
+    name="bl_wheel_link">
+    <inertial>
+      <origin
+        xyz="5.5511E-17 0 -5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.7289" />
+      <inertia
+        ixx="0.016291"
+        ixy="2.0463E-34"
+        ixz="-5.2855E-19"
+        iyy="0.016291"
+        iyz="-1.6525E-19"
+        izz="0.029148" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/bl_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/bl_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bl_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.2286"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="bl_steering_link" />
+    <child
+      link="bl_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="14"
+      velocity="35" />
+    <dynamics
+      damping="0.1"
+      friction="1" />
+  </joint>
+  <link
+    name="br_steering_link">
+    <inertial>
+      <origin
+        xyz="-1.0285E-07 -1.5412E-07 -0.092579"
+        rpy="0 0 0" />
+      <mass
+        value="7.3876" />
+      <inertia
+        ixx="0.072415"
+        ixy="-9.3088E-07"
+        ixz="-2.1936E-08"
+        iyy="0.055257"
+        iyz="-6.4073E-08"
+        izz="0.065566" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/br_steering_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/br_steering_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="br_steering"
+    type="revolute">
+    <origin
+      xyz="-0.3556 -0.2794 0.3556"
+      rpy="0 0 -0.22923" />
+    <parent
+      link="base_link" />
+    <child
+      link="br_steering_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.5708"
+      upper="1.5708"
+      effort="6"
+      velocity="1.5" />
+    <dynamics
+      damping="0.1"
+      friction="1" />
+  </joint>
+  <link
+    name="br_wheel_link">
+    <inertial>
+      <origin
+        xyz="0 0 5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="3.7289" />
+      <inertia
+        ixx="0.016291"
+        ixy="1.4355E-33"
+        ixz="0"
+        iyy="0.016291"
+        iyz="8.9232E-35"
+        izz="0.029148" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/br_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://schoolbus_description/meshes/visual/br_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="br_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0 -0.2286"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="br_steering_link" />
+    <child
+      link="br_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="14"
+      velocity="35" />
+    <dynamics
+      damping="0.1"
+      friction="1" />
+  </joint>
+</robot>
