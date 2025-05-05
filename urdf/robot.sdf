@@ -1,16 +1,16 @@
 <sdf version="1.11">
-  <model name="rACTor_Simplified_Model">
+  <model name="schoolbus">
     <link name="base_link">
       <inertial>
-        <pose>3.1711e-17 -1.9537000000000001e-16 0.55669999999999997 0 0 0</pose>
-        <mass>100</mass>
+        <pose>-0.0030991999999999999 -3.8153999999999999e-08 0.53654000000000002 0 0 0</pose>
+        <mass>486.55000000000001</mass>
         <inertia>
-          <ixx>47.984999999999999</ixx>
-          <ixy>-1.3171e-15</ixy>
-          <ixz>-4.9239000000000002e-15</ixz>
-          <iyy>57.828000000000003</iyy>
-          <iyz>1.4041000000000001e-15</iyz>
-          <izz>61.593000000000004</izz>
+          <ixx>43.054000000000002</ixx>
+          <ixy>8.2786999999999992e-06</ixy>
+          <ixz>0.15619</ixz>
+          <iyy>51.598999999999997</iyy>
+          <iyz>1.8423999999999999e-06</iyz>
+          <izz>57.113999999999997</izz>
         </inertia>
       </inertial>
       <collision name="base_link_collision">
@@ -18,7 +18,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/base_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -27,7 +27,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/base_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/base_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -36,8 +36,61 @@
         </material>
       </visual>
     </link>
+    <joint name="3d_lidar" type="fixed">
+      <pose relative_to="base_link">0.17780000000000001 0 0.93830000000000002 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>3d_lidar_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="3d_lidar_link">
+      <pose relative_to="3d_lidar">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 4.9323999999999998e-35 -0.014026 0 0 0</pose>
+        <mass>0.57482</mass>
+        <inertia>
+          <ixx>0.00081030999999999996</ixx>
+          <ixy>-9.7452999999999993e-37</ixy>
+          <ixz>7.0088999999999994e-21</ixz>
+          <iyy>0.00081030999999999996</iyy>
+          <iyz>-1.1914999999999999e-36</iyz>
+          <izz>0.00054093000000000001</izz>
+        </inertia>
+      </inertial>
+      <collision name="3d_lidar_link_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://schoolbus_urdf/meshes/visual/3d_lidar_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="3d_lidar_link_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://schoolbus_urdf/meshes/visual/3d_lidar_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990199983 1 1 1</diffuse>
+          <ambient>0.990199983 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
     <joint name="bl_steering" type="revolute">
-      <pose relative_to="base_link">-0.35560000000000003 0.27939999999999998 0.35560000000000003 0 0 -0.01447</pose>
+      <pose relative_to="base_link">-0.35560000000000003 0.27939999999999998 0.35560000000000003 0 0 0</pose>
       <parent>base_link</parent>
       <child>bl_steering_link</child>
       <axis>
@@ -75,7 +128,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/bl_steering_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/bl_steering_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -84,7 +137,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/bl_steering_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/bl_steering_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -116,14 +169,14 @@
     <link name="bl_wheel_link">
       <pose relative_to="bl_wheel">0 0 0 0 0 0</pose>
       <inertial>
-        <pose>5.5511e-17 0 -5.5511e-17 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>3.7288999999999999</mass>
         <inertia>
           <ixx>0.016291</ixx>
-          <ixy>2.0463000000000002e-34</ixy>
-          <ixz>-5.2854999999999997e-19</ixz>
+          <ixy>7.1943000000000005e-35</ixy>
+          <ixz>8.2897e-35</ixz>
           <iyy>0.016291</iyy>
-          <iyz>-1.6525e-19</iyz>
+          <iyz>-1.6705e-49</iyz>
           <izz>0.029148</izz>
         </inertia>
       </inertial>
@@ -132,7 +185,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/bl_wheel_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/bl_wheel_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -141,7 +194,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/bl_wheel_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/bl_wheel_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -151,7 +204,7 @@
       </visual>
     </link>
     <joint name="br_steering" type="revolute">
-      <pose relative_to="base_link">-0.35560000000000003 -0.27939999999999998 0.35560000000000003 0 0 -0.22922999999999996</pose>
+      <pose relative_to="base_link">-0.35560000000000003 -0.27939999999999998 0.35560000000000003 0 0 0</pose>
       <parent>base_link</parent>
       <child>br_steering_link</child>
       <axis>
@@ -173,7 +226,7 @@
     <link name="br_steering_link">
       <pose relative_to="br_steering">0 0 0 0 0 0</pose>
       <inertial>
-        <pose>-1.0285e-07 -1.5412000000000001e-07 -0.092578999999999995 0 0 0</pose>
+        <pose>-7.9133999999999999e-08 -1.3958999999999999e-07 -0.092578999999999995 0 0 0</pose>
         <mass>7.3875999999999999</mass>
         <inertia>
           <ixx>0.072414999999999993</ixx>
@@ -189,7 +242,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/br_steering_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/br_steering_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -198,7 +251,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/br_steering_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/br_steering_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -230,14 +283,14 @@
     <link name="br_wheel_link">
       <pose relative_to="br_wheel">0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 5.5511e-17 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>3.7288999999999999</mass>
         <inertia>
           <ixx>0.016291</ixx>
-          <ixy>1.4355000000000001e-33</ixy>
-          <ixz>0</ixz>
+          <ixy>7.1943000000000005e-35</ixy>
+          <ixz>-1.4635999999999999e-34</ixz>
           <iyy>0.016291</iyy>
-          <iyz>8.9231999999999997e-35</iyz>
+          <iyz>-1.8808e-34</iyz>
           <izz>0.029148</izz>
         </inertia>
       </inertial>
@@ -246,7 +299,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/br_wheel_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/br_wheel_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -255,7 +308,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/br_wheel_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/br_wheel_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -265,7 +318,7 @@
       </visual>
     </link>
     <joint name="fl_steering" type="revolute">
-      <pose relative_to="base_link">0.35560000000000003 0.27939999999999998 0.35560000000000003 0 0 -0.11116999999999999</pose>
+      <pose relative_to="base_link">0.35560000000000003 0.27939999999999998 0.35560000000000003 0 0 0</pose>
       <parent>base_link</parent>
       <child>fl_steering_link</child>
       <axis>
@@ -287,7 +340,7 @@
     <link name="fl_steering_link">
       <pose relative_to="fl_steering">0 0 0 0 0 0</pose>
       <inertial>
-        <pose>1.0285e-07 1.5412000000000001e-07 -0.092578999999999995 0 0 0</pose>
+        <pose>7.9133999999999999e-08 1.3958999999999999e-07 -0.092578999999999995 0 0 0</pose>
         <mass>7.3875999999999999</mass>
         <inertia>
           <ixx>0.072414999999999993</ixx>
@@ -303,7 +356,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/fl_steering_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/fl_steering_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -312,7 +365,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/fl_steering_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/fl_steering_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -326,7 +379,7 @@
       <parent>fl_steering_link</parent>
       <child>fl_wheel_link</child>
       <axis>
-        <xyz>0 0 -1</xyz>
+        <xyz>0 0 1</xyz>
         <limit>
           <effort>14</effort>
           <velocity>35</velocity>
@@ -348,10 +401,10 @@
         <mass>3.7288999999999999</mass>
         <inertia>
           <ixx>0.016291</ixx>
-          <ixy>-4.8147999999999999e-34</ixy>
-          <ixz>0</ixz>
+          <ixy>1.8197e-34</ixy>
+          <ixz>-2.5277000000000001e-35</ixz>
           <iyy>0.016291</iyy>
-          <iyz>4.8147999999999999e-35</iyz>
+          <iyz>-9.4039999999999999e-35</iyz>
           <izz>0.029148</izz>
         </inertia>
       </inertial>
@@ -360,7 +413,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/fl_wheel_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/fl_wheel_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -369,7 +422,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/fl_wheel_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/fl_wheel_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -379,7 +432,7 @@
       </visual>
     </link>
     <joint name="fr_steering" type="revolute">
-      <pose relative_to="base_link">0.35560000000000003 -0.27939999999999998 0.35560000000000003 0 0 0.015531</pose>
+      <pose relative_to="base_link">0.35560000000000003 -0.27939999999999998 0.35560000000000003 0 0 0</pose>
       <parent>base_link</parent>
       <child>fr_steering_link</child>
       <axis>
@@ -417,7 +470,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/fr_steering_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/fr_steering_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -426,7 +479,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/fr_steering_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/fr_steering_link.STL</uri>
           </mesh>
         </geometry>
         <material>
@@ -458,14 +511,14 @@
     <link name="fr_wheel_link">
       <pose relative_to="fr_wheel">0 0 0 0 0 0</pose>
       <inertial>
-        <pose>-5.5511e-17 0 5.5511e-17 0 0 0</pose>
+        <pose>0 0 -5.5511e-17 0 0 0</pose>
         <mass>3.7288999999999999</mass>
         <inertia>
           <ixx>0.016291</ixx>
-          <ixy>-5.7798999999999998e-37</ixy>
-          <ixz>-4.8788999999999999e-19</ixz>
+          <ixy>-2.7162000000000002e-34</ixy>
+          <ixz>-1.3166e-18</ixz>
           <iyy>0.016291</iyy>
-          <iyz>-6.2096999999999994e-36</iyz>
+          <iyz>-9.4039999999999999e-35</iyz>
           <izz>0.029148</izz>
         </inertia>
       </inertial>
@@ -474,7 +527,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/fr_wheel_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/fr_wheel_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -483,12 +536,118 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>package://schoolbus_description/meshes/visual/fr_wheel_link.STL</uri>
+            <uri>package://schoolbus_urdf/meshes/visual/fr_wheel_link.STL</uri>
           </mesh>
         </geometry>
         <material>
           <diffuse>0.627449989 0.627449989 0.627449989 1</diffuse>
           <ambient>0.627449989 0.627449989 0.627449989 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name="imu" type="fixed">
+      <pose relative_to="base_link">0 0 0.69920000000000004 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>imu_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="imu_link">
+      <pose relative_to="imu">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.00010294 8.2638000000000003e-19 0.0054089000000000003 0 0 0</pose>
+        <mass>0.026398999999999999</mass>
+        <inertia>
+          <ixx>6.0877000000000002e-06</ixx>
+          <ixy>3.4797999999999998e-23</ixy>
+          <ixz>-1.6064e-09</ixz>
+          <iyy>4.9463000000000004e-06</iyy>
+          <iyz>2.9938999999999998e-22</iyz>
+          <izz>1.0395e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="imu_link_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://schoolbus_urdf/meshes/visual/imu_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="imu_link_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://schoolbus_urdf/meshes/visual/imu_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 0.686275005 0 1</diffuse>
+          <ambient>1 0.686275005 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name="route_cam" type="fixed">
+      <pose relative_to="base_link">0.33944999999999997 0 0.66134999999999999 1.7802000000000002 -5.5511151231257827e-17 1.5708</pose>
+      <parent>base_link</parent>
+      <child>route_cam_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="route_cam_link">
+      <pose relative_to="route_cam">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>2.9796e-19 0 -0.020832 0 0 0</pose>
+        <mass>0.14055000000000001</mass>
+        <inertia>
+          <ixx>7.1822000000000005e-05</ixx>
+          <ixy>1.7563e-22</ixy>
+          <ixz>4.4341999999999998e-22</ixz>
+          <iyy>7.1822000000000005e-05</iyy>
+          <iyz>-1.7788e-20</iyz>
+          <izz>5.3474000000000003e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="route_cam_link_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://schoolbus_urdf/meshes/visual/route_cam_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="route_cam_link_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>package://schoolbus_urdf/meshes/visual/route_cam_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990199983 1 1 1</diffuse>
+          <ambient>0.990199983 1 1 1</ambient>
         </material>
       </visual>
     </link>

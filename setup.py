@@ -1,7 +1,7 @@
 from setuptools import setup
 from glob import glob
 
-package_name = 'schoolbus_description'
+package_name = 'schoolbus_urdf'
 
 setup(
     name=package_name,
