@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/dev/ros2_ws/build/schoolbus_urdf",
+        "/home/dev/ros2_ws/install/schoolbus_urdf/lib/python3.12/site-packages",
+        "/home/dev/ros2_ws/build/routecam_ros2",
+        "/home/dev/ros2_ws/install/routecam_ros2/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/dev/ros2_ws/build/schoolbus_urdf",
+        "/home/dev/ros2_ws/install/schoolbus_urdf/lib/python3.12/site-packages",
+        "/home/dev/ros2_ws/build/routecam_ros2",
+        "/home/dev/ros2_ws/install/routecam_ros2/lib/python3.12/site-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ]
+}
