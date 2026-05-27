@@ -5,14 +5,6 @@ from launch import LaunchDescription
 from launch_ros.actions import Node
 
 
-def zenoh_daemon():
-    return Node(
-        package="rmw_zenoh_cpp",
-        executable="rmw_zenohd",
-        name="rmw_zenohd",
-    )
-
-
 # Robot description from URDF
 urdf_path = os.path.join(get_package_share_directory("schoolbus_urdf"), "urdf", "schoolbus.urdf")
 with open(urdf_path, "r") as f:
@@ -47,7 +39,6 @@ def joint_state_publisher_node():
 
 def generate_launch_description():
     ld = LaunchDescription()
-    # ld.add_action(zenoh_daemon())
     ld.add_action(robot_state_publisher_node())
     ld.add_action(joint_state_publisher_node())
     return ld
